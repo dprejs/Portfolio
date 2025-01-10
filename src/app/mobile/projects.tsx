@@ -6,7 +6,7 @@ import colors from "../standards/colors"
 
 export default function ProjectsMobile () {
   return (
-    <div id="4" className="page bg-secondary p-5 pb-10 snap-start">
+    <div id="4" className="page bg-secondary p-5 pb-5 snap-start">
     <div className="flex flex-col gap-2 w-full h-full overflow-scroll">
       <div className="text-5xl font-bold">My Projects</div>
       <div className="flex flex-col gap-2 gap-y-2 justify-around h-full">

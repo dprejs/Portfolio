@@ -18,6 +18,7 @@ export default function SummariesMobile() {
     adaptiveHeight: true,
     cenerMode: true,
     focusOnSelect: true,
+    swipeToSlide: true,
   };
 
   return (
