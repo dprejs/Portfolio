@@ -5,6 +5,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #435F07;
+  --secondary: #1E1E24;
+  --accent: #F176F9;
+  /* --accent: #BA2D0B; */
+  --text: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,8 +19,336 @@
   }
 }
 
+.home {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+  scroll-timeline-name: --home;
+}
+
+.home ::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   color: var(--foreground);
-  background: var(--background);
+  height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.mirror {
+  height: 400px;
+  width: 400px;
+}
+.mirrorMobile{
+  height: 35vh;
+  width: 35vh;
+}
+.slider-container {
+  padding-top: 10vh;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+}
+
+.pip {
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+}
+
+.project {
+  width: 700px;
+}
+.techCard {
+  width: 150px;
+}
+.techCardSm {
+  width: 100px;
+  height: 100px;
+}
+.page {
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+.summary-card{
+  width: 28vw;
+  height: 400px;
+}
+
+.scroll-path {
+  bottom: 0px;
+  left: 0;
+}
+#flag1 {
+  bottom: 7.5vw;
+  left: -2px;
+}
+
+#flag1-label {
+  display: none;
+  bottom: 10vw;
+  left: 0;
+}
+
+#flag1:hover~#flag1-label {
+  display: flex;
+  /* bottom: 30vw; */
+}
+
+
+.label .text {
+  background-color: white;
+  color: #1E1E24;
+  z-index: 5;
+}
+
+.label-border {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--accent);
+  background-color: transparent;
+  z-index: 1;
+}
+
+.label-arrow {
+  position: relative;
+  top: -12px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+  background-color: transparent;
+  z-index: 8;
+  /* margin: 2rem; */
+}
+
+#flag2 {
+  bottom: 4px;
+  /* left: 450px; */
+  left: 27vw;
+}
+
+#flag2-label {
+  bottom: 50px;
+  left: 25vw;
+  display: none;
+}
+
+#flag2:hover~#flag2-label {
+  display: flex;
+}
+
+#flag3 {
+  /* bottom: 83px; */
+  bottom: 4.5vw;
+  /* left: 850px; */
+  left: 47vw;
+}
+
+#flag3-label {
+  left: 45vw;
+  bottom: 6.9vw;
+  display: none;
+}
+
+#flag3:hover~#flag3-label {
+  display: flex;
+}
+
+#flag4 {
+  bottom: 4px;
+  /* left: 1200px; */
+  left: 65vw;
+}
+
+#flag4-label {
+  left: 63vw;
+  bottom: 50px;
+  display: none;
+}
+
+#flag4:hover~#flag4-label {
+  display: flex;
+}
+
+#flag5 {
+  bottom: 4px;
+  /* left: 1800px; */
+  left: 97vw;
+}
+
+#flag5-label {
+  left: 94vw;
+  bottom: 50px;
+  display: none;
+}
+
+#flag5:hover~#flag5-label {
+  display: flex;
+}
+
+#rider {
+  /* bottom: 3.5vw;
+  left: 48vw;
+  transform: rotate(-40deg); */
+  animation-timeline: --home;
+  animation-name: rider-scroll;
+  animation-duration: auto;
+  /* animation-duration: 10s; */
+  animation-timing-function: linear;
+  /* animation-iteration-count: infinite; */
+}
+
+@keyframes rider-scroll {
+  0% {
+    bottom: 6.5vw;
+    left: -25px;
+    transform: rotate(7deg);
+  }
+
+  7% {
+    bottom: 2.4vw;
+    left: 7vw;
+    transform: rotate(6deg);
+  }
+
+  13% {
+    bottom: .5vw;
+    left: 13vw;
+    transform: rotate(-1deg);
+  }
+
+  20% {
+    bottom: -.7vw;
+    left: 20vw;
+    transform: rotate(-10deg);
+  }
+
+  25% {
+    bottom: -13px;
+    left: 25vw;
+    transform: rotate(-14deg);
+  }
+
+  30% {
+    bottom: -.4vw;
+    left: 30vw;
+    transform: rotate(-29deg);
+  }
+
+  40% {
+    bottom: 3.3vw;
+    left: 40vw;
+    transform: rotate(-42deg);
+  }
+
+  45% {
+    bottom: 3.7vw;
+    left: 43vw;
+    transform: rotate(-46deg);
+  }
+
+  50% {
+    bottom: 3.8vw;
+    left: 45vw;
+    transform: rotate(-50deg);
+  }
+
+  53% {
+    bottom: 3.5vw;
+    left: 48vw;
+    transform: rotate(-40deg);
+  }
+
+  55% {
+    bottom: 3vw;
+    left: 50vw;
+    transform: rotate(-30deg);
+  }
+
+  60% {
+    bottom: 1.2vw;
+    left: 53vw;
+    transform: rotate(8deg);
+  }
+
+  70% {
+    bottom: -.6vw;
+    left: 58vw;
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    bottom: -14px;
+    left: 63vw;
+    transform: rotate(-22deg);
+  }
+
+  77% {
+    bottom: -.3vw;
+    left: 66vw;
+    transform: rotate(-29deg);
+  }
+
+  80% {
+    bottom: 1.4vw;
+    left: 70vw;
+    transform: rotate(-55deg);
+  }
+
+  82% {
+    bottom: 4.9vw;
+    left: 73vw;
+    transform: rotate(-70deg);
+  }
+
+  85% {
+    bottom: 5.5vw;
+    left: 75vw;
+    transform: rotate(-190deg);
+  }
+
+  87% {
+    bottom: 4.8vw;
+    left: 78vw;
+    transform: rotate(-270deg);
+  }
+
+  90% {
+    bottom: 1vw;
+    left: 81vw;
+    transform: rotate(-348deg);
+  }
+
+  93% {
+    bottom: -.8vw;
+    left: 87vw;
+    transform: rotate(-367deg);
+  }
+
+  95% {
+    bottom: -1vw;
+    left: 92vw;
+    transform: rotate(-377deg);
+  }
+
+  100% {
+    bottom: -12px;
+    left: 97vw;
+    transform: rotate(-377deg);
+  }
 }

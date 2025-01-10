@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "./src/app/standards/colors";
 
 export default {
   content: [
@@ -7,6 +8,12 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      primary: colors.primary,
+      secondary: colors.secondary,
+      accent: colors.accent,
+      text: colors.accent
+    },
     extend: {
       colors: {
         background: "var(--background)",

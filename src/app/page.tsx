@@ -1,101 +1,100 @@
+'use client'
 import Image from "next/image";
+import FlagSvg from "./svg/flagSvg";
+import Rider from "./svg/rider";
+import colors from "./standards/colors";
+import { useContext } from "react";
+import { ScreenContext } from "./context";
+import IntroDesk from "./desktop/intro";
+import SummariesDesk from "./desktop/summaries";
+import ExpDesk from "./desktop/experience";
+import ProjectsDesk from "./desktop/projects";
+import MessageDesk from "./desktop/message";
+import IntroMobile from "./mobile/intro";
+import SummariesMobile from "./mobile/summaries";
+import ExpMobile from "./mobile/experience";
+import TechMobile from "./mobile/tech";
+import ProjectsMobile from "./mobile/projects";
+import MessageMobile from "./mobile/message";
+
 
 export default function Home() {
+  const scrollHandler = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ block: "start", behavior: "smooth" })
+  }
+  const screen = useContext(ScreenContext);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="home">
+      {screen.isMobile ? <IntroMobile /> : <IntroDesk />}
+      {screen.isMobile ? <SummariesMobile/> : <SummariesDesk />}
+      {screen.isMobile ? <ExpMobile /> : <ExpDesk />}
+      {screen.isMobile ? <TechMobile /> : null}
+      {screen.isMobile ? <ProjectsMobile /> : <ProjectsDesk />}
+      {screen.isMobile ? <MessageMobile /> : <MessageDesk />}
+      {screen.isMobile ? null :
+      <div className="h-0">
+        <Image className="fixed scroll-path" src={"/path.svg"} alt="scroll" height={50} width={1900} />
+        {/* <PathSvg className="fixed scroll-path" height={146} width={1900} stroke={colors.accent}/> */}
+        <Rider id="rider" className="fixed" height={70} width={70} fill={colors.accent} />
+        <button id="flag1" onClick={() => scrollHandler("1")}>
+          <FlagSvg id="flag1" className="fixed" height={40} width={40} fill={colors.accent} onClick={() => scrollHandler("1")} />
+        </button>
+        <div id="flag1-label" className="fixed label flex flex-col items-start">
+          <div className="border-2 border-accent p-1 rounded-md text">
+            Intro
+          </div>
+          <div className="label-border ml-1">
+            <div className="label-arrow" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <button id="flag2" onClick={() => scrollHandler("2")}>
+          <FlagSvg id="flag2" className="fixed" height={40} width={40} fill={colors.accent} />
+        </button>
+        <div id="flag2-label" className="fixed label flex flex-col items-center">
+          <div className="border-2 border-accent p-1 rounded-md text">
+            Summaries
+          </div>
+          <div className="label-border ml-1">
+            <div className="label-arrow" />
+          </div>
+        </div>
+        <button id="flag3" onClick={() => scrollHandler("3")}>
+          <FlagSvg id="flag3" className="fixed" height={40} width={40} fill={colors.accent} />
+        </button>
+        <div id="flag3-label" className="fixed label flex flex-col items-center">
+          <div className="border-2 border-accent p-1 rounded-md text">
+            About Me
+          </div>
+          <div className="label-border ml-1">
+            <div className="label-arrow" />
+          </div>
+        </div>
+        <button id="flag4" onClick={() => scrollHandler("4")}>
+          <FlagSvg id="flag4" className="fixed" height={40} width={40} fill={colors.accent} />
+        </button>
+
+        <div id="flag4-label" className="fixed label flex flex-col items-center">
+          <div className="border-2 border-accent p-1 rounded-md text">
+            My Projects
+          </div>
+          <div className="label-border ml-1">
+            <div className="label-arrow" />
+          </div>
+        </div>
+        <button id="flag5" onClick={() => scrollHandler("5")}>
+          <FlagSvg id="flag5" className="fixed" height={40} width={40} fill={colors.accent} />
+        </button>
+        <div id="flag5-label" className="fixed label flex flex-col items-end">
+          <div className="border-2 border-accent p-1 rounded-md text">
+            Message Me
+          </div>
+          <div className="label-border mr-5">
+            <div className="label-arrow" />
+          </div>
+        </div>
+      </div>
+      }
+
     </div>
   );
 }
