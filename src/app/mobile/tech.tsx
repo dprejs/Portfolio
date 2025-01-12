@@ -16,8 +16,6 @@ export default function TechMobile() {
     autoplaySpeed: 4000,
     rows: 2,
     slidesPerRow: 2,
-    variableWidth: true,
-    adaptiveHeight: true,
     swipeToSlide: true,
   };
   return (

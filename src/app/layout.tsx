@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import CloseIcon from '@mui/icons-material/Close';
 import { createTheme, SwipeableDrawer } from "@mui/material";
 import { useState } from "react";
 import { ThemeProvider } from "@emotion/react";
@@ -63,21 +64,34 @@ export default function RootLayout({
       >
         <ContextProvider>
           <ThemeProvider theme={theme}>
-            <div className="fixed top-0 z-20 right-0 p-3">
-              <button onClick={() => toggleDrawer(true)}>
+            <div className={`fixed top-0 z-30 right-0 p-3`}>
+              <button className={drawer ? "hidden" : ""} onClick={() => toggleDrawer(true)}>
                 <MenuRoundedIcon color="error" sx={{ width: "60px", height: "60px" }} />
               </button>
+
               <SwipeableDrawer
                 anchor="right"
                 open={drawer}
                 onClose={() => toggleDrawer(false)}
                 onOpen={() => toggleDrawer(true)}
               >
-                <div className="bg-primary h-screen p-10 text-4xl font-bold flex flex-col justify-around z-30">
+                <div className="bg-primary h-screen p-10 text-4xl font-bold flex flex-col justify-around z-40">
+                  <div className={`fixed top-0 ${drawer ? "z-90" : "z-20"} right-0 p-3`}>
+                    <button className={""} onClick={() => toggleDrawer(false)}>
+                      <CloseIcon color="error" sx={{ width: "60px", height: "60px" }} />
+                    </button>
+
+                  </div>
                   <div className="flex flex-col gap-10">
-                    <Link href={"/"}>Home</Link>
-                    <Link href={"/resume"}>My Resume</Link>
-                    <Link href={"/about"}>About Me</Link>
+                    <div onClick={() => toggleDrawer(false)}>
+                      <Link href={"/"}>Home</Link>
+                    </div>
+                    <div onClick={() => toggleDrawer(false)}>
+                      <Link href={"/resume"}>My Resume</Link>
+                    </div>
+                    <div onClick={() => toggleDrawer(false)}>
+                      <Link href={"/about"}>About Me</Link>
+                    </div>
                   </div>
                   <div className="flex flex-col gap-5">
                     <span>Connect with me</span>
