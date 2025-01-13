@@ -11,6 +11,11 @@
   margin-top: 10px;
   width: 75%;
 }
+.resume-project-mobile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
 .condense {
   gap: -5px;
 }
